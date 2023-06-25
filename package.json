@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-file-manager",
+  "version": "1.0.0",
+  "description": "NodeJS File Manager",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TobiaszKowalski/NodeJS-File-Manager"
+  },
+  "author": "",
+  "license": "ISC"
+}
