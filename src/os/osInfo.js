@@ -26,7 +26,7 @@ export default class OSInfoManager {
         await OSInfoManager.printNodeArchitecture();
         break;
       default:
-        console.log("Invalid option. Try again.");
+        console.log("Invalid input");
         break;
     }
   }

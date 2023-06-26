@@ -19,7 +19,7 @@ export default class HashManager {
         console.log(`Error reading file: ${error.message}`);
       });
     } catch (error) {
-      console.log("Failed to calculate hash.");
+      console.log("Operation failed");
     }
   }
 }

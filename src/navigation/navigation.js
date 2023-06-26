@@ -14,6 +14,7 @@ export default class NavigationManager {
       console.log(`Moved up to ${this.currentDir}`);
     } else {
       console.log("You cannot go beyond the root directory");
+      console.log("Operation failed");
     }
   }
 
@@ -27,13 +28,14 @@ export default class NavigationManager {
           this.currentDir = newPath;
           console.log(`Changed to ${this.currentDir}`);
         } else {
-          console.log("Invalid directory path. Please provide a valid directory path.");
+          console.log("Operation failed");
         }
       } catch (error) {
-        console.log("Invalid directory path. Please provide a valid directory path.");
+        console.log("Invalid input");
       }
     } else {
       console.log("Cannot go beyond the root directory")
+      console.log("Operation failed");
     }
   }
 
@@ -54,7 +56,7 @@ export default class NavigationManager {
       });
       console.table(sortedItems);
     } catch (error) {
-      console.log("Failed to list directory contents.");
+      console.log("Operation failed");
     }
   }
 }

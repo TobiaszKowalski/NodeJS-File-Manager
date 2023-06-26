@@ -12,10 +12,10 @@ export default class FileOperationsManager {
         console.log(chunk);
       });
       readableStream.on("error", (error) => {
-        console.log(`Error reading file: ${error.message}`);
+        console.log("Operation failed");
       });
     } catch (error) {
-      console.log("Failed to read file.");
+      console.log("Operation failed");
     }
   }
 
@@ -23,9 +23,9 @@ export default class FileOperationsManager {
     try {
       const filePath = path.join(process.cwd(), fileName);
       await fs.promises.writeFile(filePath, "");
-      console.log(`Created empty file: ${filePath}`);
+      console.log("Operation failed");
     } catch (error) {
-      console.log("Failed to create file.");
+      console.log("Operation failed");
     }
   }
 
@@ -37,7 +37,7 @@ export default class FileOperationsManager {
       await fs.promises.rename(fullPath, newFilePath);
       console.log(`Renamed file to: ${newFilePath}`);
     } catch (error) {
-      console.log("Failed to rename file.");
+      console.log("Operation failed");
     }
   }
 
@@ -61,7 +61,7 @@ export default class FileOperationsManager {
         console.log(`Copied file to: ${destinationFullPath}`);
       });
     } catch (error) {
-      console.log("Failed to copy file.");
+      console.log("Operation failed");
     }
   }
 
@@ -86,7 +86,7 @@ export default class FileOperationsManager {
         console.log(`Moved file to: ${destinationFullPath}`);
       });
     } catch (error) {
-      console.log("Failed to move file.");
+      console.log("Operation failed");
     }
   }
 
@@ -95,7 +95,7 @@ export default class FileOperationsManager {
       await fs.promises.unlink(filePath);
       console.log(`Deleted file: ${filePath}`);
     } catch (error) {
-      console.log("Failed to delete file.");
+      console.log("Operation failed");
     }
   }
 }

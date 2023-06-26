@@ -87,13 +87,11 @@ consoleInterface.on("line", async (input) => {
         consoleInterface.close();
         break;
       default:
-        console.log("Invalid command. Try again.");
+        console.log("Invalid input");
         break;
     }
   } catch (error) {
-    console.log(
-      "Operation failed. Check if the file or path exists and try again."
-    );
+    console.log( "Operation failed");
   }
   console.log(`You are currently in ${process.cwd()}`);
   consoleInterface.prompt();
