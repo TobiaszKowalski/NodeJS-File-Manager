@@ -1,4 +1,6 @@
-import { readline, os, NavigationManager, FileOperationsManager, HashManager, OSInfoManager } from "./modules.js";
+import { 
+  readline, os, NavigationManager, FileOperationsManager, HashManager, OSInfoManager, ArchiveManager 
+} from "./modules.js";
 
 const consoleInterface = readline.createInterface({
   input: process.stdin,
@@ -75,6 +77,14 @@ consoleInterface.on("line", async (input) => {
       case "os":
         // In this case instance of class wasn't created because there is no dependency from outer data
         OSInfoManager.getOperatingSystemInfo(params);
+        break;
+      case "compress":
+        // In this case instance of class wasn't created because there is no dependency from outer data
+        await ArchiveManager.compressFile(params[0], params[1]);
+        break;
+      case "decompress":
+        // In this case instance of class wasn't created because there is no dependency from outer data
+        await ArchiveManager.decompressFile(params[0], params[1]);
         break;
       case "fail":
         // error test
