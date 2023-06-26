@@ -27,9 +27,6 @@ consoleInterface.on("line", async (input) => {
 
   try {
     switch (command) {
-      case "test":
-        console.log("Test");
-        break;
       case "up":
         await navigation.goUp();
         break;
@@ -42,41 +39,41 @@ consoleInterface.on("line", async (input) => {
       case "cat":
         // read file and print content logic
         // Path starts from current directory you are
-        fileOperationManager.readFile(params[0]);
+        await fileOperationManager.readFile(params[0]);
         break;
       case "add":
         // create empty file logic
         //add file in current directory
-        fileOperationManager.createFile(params[0]);
+        await fileOperationManager.createFile(params[0]);
         break;
       case "rn":
         // Rename file logic
         // Path's starts from home directory which is os.homedir()
-        fileOperationManager.renameFile(params[0], params[1]);
+        await fileOperationManager.renameFile(params[0], params[1]);
         break;
       case "cp":
         // Copy file logic
         // Path's starts from home directory which is os.homedir()
-        fileOperationManager.copyFile(params[0], params[1]);
+        await fileOperationManager.copyFile(params[0], params[1]);
         break;
       case "mv":
         // Move file logic
         // Path's starts from home directory which is os.homedir()
-        fileOperationManager.moveFile(params[0], params[1]);
+        await fileOperationManager.moveFile(params[0], params[1]);
         break;
       case "rm":
         // Remove file logic
         // Path starts from current directory you are
-        fileOperationManager.deleteFile(params[0]);
+        await fileOperationManager.deleteFile(params[0]);
         break;
       case "hash":
         // Path starts from current directory you are
         // In this case instance of class wasn't created because there is no dependency from outer data
-        HashManager.calculateHash(params[0]);
+        await HashManager.calculateHash(params[0]);
         break;
       case "os":
         // In this case instance of class wasn't created because there is no dependency from outer data
-        OSInfoManager.getOperatingSystemInfo(params);
+        await OSInfoManager.getOperatingSystemInfo(params);
         break;
       case "compress":
         // In this case instance of class wasn't created because there is no dependency from outer data
@@ -86,9 +83,6 @@ consoleInterface.on("line", async (input) => {
         // In this case instance of class wasn't created because there is no dependency from outer data
         await ArchiveManager.decompressFile(params[0], params[1]);
         break;
-      case "fail":
-        // error test
-        throw new Error();
       case ".exit":
         consoleInterface.close();
         break;

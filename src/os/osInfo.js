@@ -1,7 +1,7 @@
 import { os } from "../modules.js";
 
 export default class OSInfoManager {
-  static getOperatingSystemInfo(args) {
+  static async getOperatingSystemInfo(args) {
     if (args.length !== 1) {
       console.log("Invalid command. Try again.");
       return;
@@ -11,19 +11,19 @@ export default class OSInfoManager {
 
     switch (option) {
       case "--EOL":
-        OSInfoManager.printEOL();
+        await OSInfoManager.printEOL();
         break;
       case "--cpus":
-        OSInfoManager.printCPUs();
+        await OSInfoManager.printCPUs();
         break;
       case "--homedir":
-        OSInfoManager.printHomeDirectory();
+        await OSInfoManager.printHomeDirectory();
         break;
       case "--username":
-        OSInfoManager.printCurrentUsername();
+        await OSInfoManager.printCurrentUsername();
         break;
       case "--architecture":
-        OSInfoManager.printNodeArchitecture();
+        await OSInfoManager.printNodeArchitecture();
         break;
       default:
         console.log("Invalid option. Try again.");
@@ -31,12 +31,12 @@ export default class OSInfoManager {
     }
   }
 
-  static printEOL() {
+  static async printEOL() {
     const eol = os.EOL;
     console.log(`End-Of-Line (EOL): ${eol}`);
   }
 
-  static printCPUs() {
+  static async printCPUs() {
     const cpus = os.cpus();
     console.log("CPUs:");
     cpus.forEach((cpu, index) => {
@@ -46,17 +46,17 @@ export default class OSInfoManager {
     });
   }
 
-  static printHomeDirectory() {
+  static async printHomeDirectory() {
     const homedir = os.homedir();
     console.log(`Home Directory: ${homedir}`);
   }
 
-  static printCurrentUsername() {
+  static async printCurrentUsername() {
     const username = os.userInfo().username;
     console.log(`Current System User: ${username}`);
   }
 
-  static printNodeArchitecture() {
+  static async printNodeArchitecture() {
     const architecture = process.arch;
     console.log(`Node.js Binary Architecture: ${architecture}`);
   }
