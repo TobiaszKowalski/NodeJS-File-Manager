@@ -15,7 +15,6 @@ const username = args
 
 const navigation = new NavigationManager();
 const fileOperationManager = new FileOperationsManager();
-const hashManager = new HashManager();
 
 console.log(`Welcome to the File Manager, ${username}!`);
 console.log(`You are currently in ${process.cwd()}`);
@@ -70,7 +69,8 @@ consoleInterface.on("line", async (input) => {
         break;
       case "hash":
         // Path starts from current directory you are
-        hashManager.calculateHash(params[0]);
+        // In this case instance of class wasn't created because there is no dependency from outer data
+        HashManager.calculateHash(params[0]);
         break;
       case "os":
         // In this case instance of class wasn't created because there is no dependency from outer data

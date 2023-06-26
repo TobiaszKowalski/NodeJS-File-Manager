@@ -1,7 +1,7 @@
 import { fs, crypto } from "../modules.js";
 
 export default class HashManager {
-  async calculateHash(filePath) {
+  static async calculateHash(filePath) {
     try {
       const fileStream = fs.createReadStream(filePath);
       const hash = crypto.createHash("sha256");
