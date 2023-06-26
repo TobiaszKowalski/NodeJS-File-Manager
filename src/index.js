@@ -1,4 +1,4 @@
-import { readline, os, NavigationManager, FileOperationsManager } from "./modules.js";
+import { readline, os, NavigationManager, FileOperationsManager, HashManager } from "./modules.js";
 
 const consoleInterface = readline.createInterface({
   input: process.stdin,
@@ -15,6 +15,7 @@ const username = args
 
 const navigation = new NavigationManager();
 const fileOperationManager = new FileOperationsManager();
+const hashManager = new HashManager();
 
 console.log(`Welcome to the File Manager, ${username}!`);
 console.log(`You are currently in ${process.cwd()}`);
@@ -39,7 +40,7 @@ consoleInterface.on("line", async (input) => {
         break;
       case "cat":
         // read file and print content logic
-        // starts from current directory you are
+        // Path starts from current directory you are
         fileOperationManager.readFile(params[0]);
         break;
       case "add":
@@ -59,12 +60,17 @@ consoleInterface.on("line", async (input) => {
         break;
       case "mv":
         // Move file logic
+        // Path's starts from home directory which is os.homedir()
         fileOperationManager.moveFile(params[0], params[1]);
         break;
       case "rm":
         // Remove file logic
-        // starts from current directory you are
+        // Path starts from current directory you are
         fileOperationManager.deleteFile(params[0]);
+        break;
+      case "hash":
+        // Path starts from current directory you are
+        hashManager.calculateHash(params[0]);
         break;
       case "fail":
         // error test

@@ -6,5 +6,10 @@ import zlib from "zlib";
 import readline from "readline";
 import NavigationManager from "./navigation/navigation.js";
 import FileOperationsManager from "./operations/fileOperations.js";
+import HashManager from "./hash/hash.js";
 
-export { fs, os, path, crypto, zlib, readline, NavigationManager, FileOperationsManager };
+export { 
+    fs, os, path, crypto, zlib, readline, 
+    NavigationManager, FileOperationsManager,
+    HashManager
+};
