@@ -1,6 +1,4 @@
-import fs from "fs";
-import os from "os";
-import path from "path";
+import { os, fs, path } from "../modules.js";
 
 export default class NavigationManager {
   constructor() {
