@@ -1,4 +1,4 @@
-import { readline, os, NavigationManager, FileOperationsManager, HashManager } from "./modules.js";
+import { readline, os, NavigationManager, FileOperationsManager, HashManager, OSInfoManager } from "./modules.js";
 
 const consoleInterface = readline.createInterface({
   input: process.stdin,
@@ -71,6 +71,10 @@ consoleInterface.on("line", async (input) => {
       case "hash":
         // Path starts from current directory you are
         hashManager.calculateHash(params[0]);
+        break;
+      case "os":
+        // In this case instance of class wasn't created because there is no dependency from outer data
+        OSInfoManager.getOperatingSystemInfo(params);
         break;
       case "fail":
         // error test
